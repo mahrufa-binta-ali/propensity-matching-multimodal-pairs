@@ -85,6 +85,47 @@ Because this method learns from known pair labels, it is **supervised**. It shou
 
 ---
 
+## Pair-Construction Visualizations
+
+The plots below summarize pair quality, retrieval behavior, and the learned pair-compatibility space.
+
+<table>
+  <tr>
+    <th>Pair quality</th>
+    <th>Retrieval comparison</th>
+    <th>Supervised pair-compatibility space</th>
+  </tr>
+  <tr>
+    <td width="33%">
+      <a href="figures/pair_quality_comparison.png">
+        <img src="figures/pair_quality_comparison.png" alt="Pair quality comparison" width="100%">
+      </a>
+    </td>
+    <td width="33%">
+      <a href="figures/retrieval_strategy_comparison.png">
+        <img src="figures/retrieval_strategy_comparison.png" alt="Retrieval strategy comparison" width="100%">
+      </a>
+    </td>
+    <td width="33%">
+      <a href="figures/propensity_pairing_space.png">
+        <img src="figures/propensity_pairing_space.png" alt="Supervised pair-compatibility space" width="100%">
+      </a>
+    </td>
+  </tr>
+</table>
+
+Each panel links to the full-resolution figure.
+
+| Panel | What to notice |
+|---|---|
+| **Pair quality** | Ground-truth supervision is the oracle-style reference, random pairing is the lower-bound-style condition, and metadata-based methods recover partial group-level pairing signal when metadata is informative. |
+| **Retrieval comparison** | Retrieval performance generally follows pair quality: stronger supervision produces stronger alignment, while weak pair construction degrades downstream retrieval. |
+| **Supervised pair-compatibility space** | Circles and crosses represent the two modalities. Lines show pairs selected by the supervised metadata compatibility model. Shorter and more local connections indicate geometrically plausible candidate matches in this controlled synthetic space. |
+
+These figures are qualitative diagnostics. The main conclusions are based on the quantitative results in `experiments/results_table.csv`.
+
+---
+
 ## Evaluation
 
 The benchmark separates **pair-construction quality** from **retrieval quality**.
